@@ -42,7 +42,7 @@ class LLMProvider:
         if not self.groq_client: return {"error": "GROQ_API_KEY missing"}
         try:
             response = await self.groq_client.chat.completions.create(
-                model="groq/compound",
+                model="llama-3.3-70b-versatile",
                 messages=messages, tools=tools, tool_choice="auto", temperature=0.0
             )
             return self._normalize_openai_response(response)
